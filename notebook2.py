@@ -107,7 +107,7 @@ def _(mo):
 @app.cell
 def _(mo):
     theta_io = mo.ui.range_slider(
-        start=0, stop=80, step=5, value=[30, 40], label=r"$\theta$ range"
+        start=0, stop=80, step=5, value=[15, 60], label=r"$\theta$ range"
     )
     theta_center_io = mo.ui.slider(
         start=0.5, stop=5, step=0.25, value=3, label=r"$\theta$ center"
@@ -117,7 +117,7 @@ def _(mo):
     )
 
     phi_io = mo.ui.range_slider(
-        start=0, stop=80, step=5, value=[30, 40], label=r"$\phi$ range"
+        start=0, stop=80, step=5, value=[20, 40], label=r"$\phi$ range"
     )
     phi_center_io = mo.ui.slider(
         start=0.5, stop=5, step=0.25, value=3, label=r"$\phi$ center"
@@ -264,7 +264,7 @@ def _(
 
 
 @app.cell
-def _3d_plot(Sigma0, go, mo, np, phi0, phi_expr, plt, rr, theta0, theta_expr):
+def _(Sigma0, go, mo, np, phi0, phi_expr, plt, rr, theta0, theta_expr):
     fig, ax = plt.subplot_mosaic(
         """
         AS
@@ -346,7 +346,7 @@ def _3d_plot(Sigma0, go, mo, np, phi0, phi_expr, plt, rr, theta0, theta_expr):
             "Plots": fig,
             "Show 3D plot": mo.ui.plotly(fig3d),  # mo.mpl.interactive(plt.gcf())
         },
-        lazy=True,
+        #lazy=True,
     )
     return
 
@@ -784,7 +784,8 @@ def _(G10, G20, G30, L0, Sigma0, dr2W, eo, np, plt, rr, u):
 def _(mo):
     mo.md(
         r"""
-    ## Note: What other people do!
+    /// Details | What other people do?
+    ## Note: What other people do?
 
     As we said earlier, investigation of these equation are dominated by the protostellar and BH accretion disks. In these works (such as [Martin 2019]([https://arxiv.org/abs/2109.12035](https://arxiv.org/abs/1902.11073)), [Dullemond 2021](https://arxiv.org/abs/2109.12035)) they separate the equations in two different regimes
 
@@ -832,6 +833,7 @@ def _(mo):
     & \quad \frac{\Sigma H^2 R^3 \Omega^3}{4} \frac{\partial l}{\partial R}-\frac{3}{2}(\alpha+\beta) v_1 \Sigma R^2 \Omega^2 l .
     \end{aligned}
     $$
+    ///
     """
     )
     return
@@ -841,7 +843,7 @@ def _(mo):
 def _(mo):
     mo.md(
         r"""
-    ## Next steps: Solve the equation
+    ## Our next steps: Solve the equation
     The next step is to solve numerically the equations 
 
     $$
